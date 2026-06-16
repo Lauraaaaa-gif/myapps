@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laura 的 MyApps 應用清單</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05070b;
+      --panel: #101722;
+      --panel-2: #151f2c;
+      --line: rgba(226, 232, 240, 0.14);
+      --text: #eef2f7;
+      --muted: #95a3b8;
+      --gold: #d6a84f;
+      --teal: #2dd4bf;
+      --rose: #f87171;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        linear-gradient(135deg, rgba(214, 168, 79, 0.12), transparent 34%),
+        linear-gradient(225deg, rgba(45, 212, 191, 0.10), transparent 30%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.026) 0 1px, transparent 1px 72px),
+        #05070b;
+      color: var(--text);
+      font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+    }
+
+    .site-shell {
+      width: min(100% - 32px, 1120px);
+      margin: 0 auto;
+      padding: 52px 0;
+    }
+
+    .hero {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 26px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 360px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .app-card {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(214, 168, 79, 0.18), transparent 42%);
+      opacity: 0;
+      transition: opacity 0.24s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(214, 168, 79, 0.55);
+      box-shadow: 0 30px 76px rgba(0, 0, 0, 0.46);
+    }
+
+    .app-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-number {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      color: var(--text);
+      margin-top: 18px;
+      margin-bottom: 14px;
+    }
+
+    .card-text {
+      color: var(--muted) !important;
+      line-height: 1.75;
+    }
+
+    .launch-btn {
+      border: 1px solid rgba(214, 168, 79, 0.46);
+      background: #d6a84f;
+      color: #0a0c10;
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-weight: 900;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .launch-btn:hover {
+      background: #f0c86b;
+      color: #05070b;
+      transform: translateY(-1px);
+    }
+
+    .launch-btn.secondary {
+      background: #2dd4bf;
+      border-color: rgba(45, 212, 191, 0.48);
+    }
+
+    .launch-btn.tertiary {
+      background: #eab65b;
+      border-color: rgba(234, 182, 91, 0.48);
+    }
+
+    @media (max-width: 760px) {
+      .site-shell {
+        width: min(100% - 22px, 1120px);
+        padding: 34px 0;
+      }
+
+      .hero {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="site-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Laura Studio</p>
+        <h1>MyApps</h1>
+      </div>
+      <p class="hero-copy">小工具集中練習作品集。</p>
+    </section>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <article class="app-card h-100 p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="app-number">Tool 01</span>
+            <h2 class="h4 card-title fw-bold">吉他和弦轉調器</h2>
+            <p class="card-text mt-2 mb-4">輸入一串和弦後，可以快速升 Key 或降 Key，練歌前先把調性整理好。</p>
+            <a href="./chord-transposer/index.html" class="launch-btn mt-auto">開啟應用</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-4">
+        <article class="app-card h-100 p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="app-number">Game 02</span>
+            <h2 class="h4 card-title fw-bold">記憶翻牌遊戲</h2>
+            <p class="card-text mt-2 mb-4">翻開卡片並找出相同配對，用深色牌桌打造更沉浸的遊戲感。</p>
+            <a href="./memory-game/index.html" class="launch-btn secondary mt-auto">開啟遊戲</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-4">
+        <article class="app-card h-100 p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="app-number">Quiz 03</span>
+            <h2 class="h4 card-title fw-bold">小測驗應用</h2>
+            <p class="card-text mt-2 mb-4">回答題目、看即時回饋與分數，做成簡潔但有質感的測驗體驗。</p>
+            <a href="./quiz-app/index.html" class="launch-btn tertiary mt-auto">開啟測驗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
