@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小測驗應用</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="quiz-page">
+    <nav class="top-bar" aria-label="頁面導覽">
+      <a href="../index.html" class="back-link">← 返回 MyApps</a>
+      <button id="restartBtn" class="icon-button" type="button" aria-label="重新開始" title="重新開始">↻</button>
+    </nav>
+    <section class="quiz-shell">
+      <header class="quiz-header">
+        <div>
+          <p class="eyebrow">Quiz App</p>
+          <h1>小測驗應用</h1>
+          <p class="intro-text">每題作答後立即回饋，最後提供詳解回顧。</p>
+        </div>
+        <div class="score-row">
+          <div class="score-box"><span>分數</span><strong><span id="scoreText">0</span>/<span id="totalText">0</span></strong></div>
+          <div class="score-box"><span>連勝</span><strong id="streakText">0</strong></div>
+        </div>
+      </header>
+      <div class="progress-wrap" aria-label="答題進度"><div id="progressBar" class="progress-bar"></div></div>
+      <section id="questionPanel" class="question-panel">
+        <p id="questionCount" class="question-count">第 1 題</p>
+        <h2 id="questionText">題目載入中</h2>
+        <div id="answerList" class="answer-list"></div>
+        <p id="feedbackText" class="feedback-text" aria-live="polite"></p>
+        <button id="nextBtn" class="next-button" type="button" disabled>下一題</button>
+      </section>
+      <section id="resultPanel" class="result-panel" hidden>
+        <p class="eyebrow">Result</p>
+        <h2 id="resultTitle">測驗完成</h2>
+        <p id="resultSummary"></p>
+        <div id="reviewList" class="review-list"></div>
+        <button id="tryAgainBtn" type="button">再測一次</button>
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

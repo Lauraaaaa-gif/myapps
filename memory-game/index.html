@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記憶翻牌遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-page">
+    <nav class="top-bar" aria-label="頁面導覽">
+      <a href="../index.html" class="back-link">← 返回 MyApps</a>
+      <button id="restartBtn" class="icon-button" type="button" aria-label="重新開始" title="重新開始">↻</button>
+    </nav>
+    <section class="game-header">
+      <div>
+        <p class="eyebrow">Memory Game</p>
+        <h1>記憶翻牌遊戲</h1>
+        <p class="intro-text">選擇難度後翻牌配對，系統會記錄最佳成績。</p>
+      </div>
+      <div class="score-grid" aria-label="遊戲狀態">
+        <div class="score-item"><span>步數</span><strong id="moveCount">0</strong></div>
+        <div class="score-item"><span>時間</span><strong id="timer">00:00</strong></div>
+        <div class="score-item"><span>配對</span><strong><span id="matchCount">0</span>/<span id="totalPairs">8</span></strong></div>
+        <div class="score-item wide"><span>最佳</span><strong id="bestScore">--</strong></div>
+      </div>
+    </section>
+    <section class="control-panel" aria-label="遊戲控制">
+      <label for="difficultySelect">難度</label>
+      <select id="difficultySelect">
+        <option value="6">入門 12 張</option>
+        <option value="8" selected>標準 16 張</option>
+        <option value="10">挑戰 20 張</option>
+      </select>
+      <p id="hintText">翻開兩張相同符號即可配對。</p>
+    </section>
+    <section id="gameBoard" class="game-board" aria-label="翻牌遊戲棋盤"></section>
+    <section id="winPanel" class="win-panel" hidden>
+      <div class="win-dialog" role="dialog" aria-labelledby="winTitle" aria-modal="true">
+        <h2 id="winTitle">完成配對！</h2>
+        <p id="winSummary"></p>
+        <button id="playAgainBtn" type="button">再玩一次</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
